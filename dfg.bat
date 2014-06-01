@@ -1,6 +1,6 @@
 :: -----------------------------------------------------
-:: script para limpeza e desfragmenta��o de disco
-:: Vin�cius A. Reis
+:: script para limpeza e desfragmentação de disco
+:: Vinícius A. Reis
 :: 01/2011
 :: -----------------------------------------------------
 
@@ -90,7 +90,7 @@ goto:eof
 	set /a sage=11
 	set /a halt_time=55
 	set /a halt_time=%halt_time% + 5
-	set version=0.1.0a
+	set version=0.1.0b
 	set name=System TuneUP
 	title %name%
 	
@@ -111,7 +111,7 @@ goto:eof
 :dvrclean
 	echo * Running disk cleaner on %drive%
 	start /wait cleanmgr /d %drive%  /sagerun:%sage%
-	if "exist %programfiles%\ccleaner\ccleaner.exe" (
+	if exist "%programfiles%\ccleaner\ccleaner.exe" (
 		start /wait ccleaner /auto
 	)
 goto:eof
