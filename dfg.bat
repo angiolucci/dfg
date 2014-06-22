@@ -20,7 +20,7 @@ if "%OS%"=="Windows_NT" (
 	) else (
 		echo Your system cannot be cleanned while there are
 		echo errors on filesystem at %drive%.
-		echo Please, use Windows CheckDisk, this scirpt
+		echo Please, use Windows CheckDisk, this script
 		echo or other software to verify and repair your filesystem.
 		echo.
 		echo If a scan is scheduled to run on next boot time, 
@@ -47,7 +47,7 @@ goto:eof
 :shwhdr
 	echo ======================================
 	echo ==                                  ==
-	echo == System Cleaner scirpt %version%     ==
+	echo == System Cleaner script %version%     ==
 	echo ==                                  ==
 	echo ======================================
 	ver
