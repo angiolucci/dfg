@@ -46,11 +46,8 @@ goto:eof
 goto:eof
 
 :shwhdr
-	echo ======================================
-	echo ==                                  ==
-	echo == %name% %version%            ==
-	echo ==                                  ==
-	echo ======================================
+	echo %name% %version%
+	echo --------------------------------------
 	ver
 	echo.
 	echo.
