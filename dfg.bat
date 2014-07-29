@@ -13,6 +13,7 @@ if "%OS%"=="Windows_NT" (
 	call:chkdisk
 	if not "%faildisk%"=="1" (
 		call:dvrclean
+		call:check_av
 		call:dfrg
 		call:dfrg -boot
 		call:purge
@@ -86,6 +87,7 @@ goto:eof
 goto:eof
 
 :config
+	set av_path="%programfiles%\Microsoft Security Client\MpCmdRun.exe"
 	set drive=%systemdrive%
 	set /a sage=11
 	set /a halt_time=55
@@ -100,6 +102,7 @@ goto:eof
 goto:eof
 
 :purge
+	set av_path=
 	set drive=
 	set sage=
 	REM set halt_time=
@@ -141,6 +144,13 @@ goto:eof
 		echo S > %tmp%\dfg.tmp
 		chkdsk /f /r %drive% < %tmp%\dfg.tmp
 		del /q %tmp%\dfg.tmp
+	)
+goto:eof
+
+:check_av
+	if exist %av_path% (
+		echo * Checking for viruses with Microsoft Security Essentials
+		%av_path% -Scan -Scantype 1
 	)
 goto:eof
 
