@@ -48,7 +48,7 @@ goto:eof
 :shwhdr
 	echo ======================================
 	echo ==                                  ==
-	echo == %name% %version%     ==
+	echo == %name% %version%            ==
 	echo ==                                  ==
 	echo ======================================
 	ver
