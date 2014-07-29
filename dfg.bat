@@ -48,7 +48,7 @@ goto:eof
 :shwhdr
 	echo ======================================
 	echo ==                                  ==
-	echo == System Cleaner script %version%     ==
+	echo == %name% %version%     ==
 	echo ==                                  ==
 	echo ======================================
 	ver
@@ -92,7 +92,7 @@ goto:eof
 	set /a sage=11
 	set /a halt_time=55
 	set /a halt_time=%halt_time% + 5
-	set version=0.1.0b
+	set version=0.1.0c
 	set name=System TuneUP
 	title %name%
 	
