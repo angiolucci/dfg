@@ -1,3 +1,6 @@
+::  dfg - A system cleanup script
+::  https://github.com/angiolucci/dfg
+::
 ::  Copyright (c) 2011 Vinícius Angiolucci Reis
 ::
 ::  This program is free software: you can redistribute it and/or modify
@@ -13,9 +16,7 @@
 ::  You should have received a copy of the GNU General Public License
 ::  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ::
-:: ----------------------------------------------------------------------
-:: https://github.com/angiolucci/dfg
-:: Quick changelog
+:: quick changelog
 :: version	|	what	|	when
 :: 0.1.0	|first release	|	jan/2011
 :: 0.1.0c	|multi bug fix	|	2012,2014
@@ -107,7 +108,7 @@ goto:eof
 	set /a halt_time=55
 	set /a halt_time=%halt_time% + 5
 	set version=0.9.0
-	set name=System TuneUP
+	set name=dfg system cleanup
 	title %name%
 	
 	if not exist "%systemroot%\dfg.dat" ( 
