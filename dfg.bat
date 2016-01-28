@@ -1,8 +1,26 @@
-:: -----------------------------------------------------
-:: script para limpeza e desfragmentação de disco
-:: Vinícius A. Reis
-:: 01/2011
-:: -----------------------------------------------------
+::  Copyright (c) 2011 Vinícius Angiolucci Reis
+::
+::  This program is free software: you can redistribute it and/or modify
+::  it under the terms of the GNU General Public License as published by
+::  the Free Software Foundation, either version 3 of the License, or
+::  (at your option) any later version.
+::
+::  This program is distributed in the hope that it will be useful,
+::  but WITHOUT ANY WARRANTY; without even the implied warranty of
+::  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+::  GNU General Public License for more details.
+::
+::  You should have received a copy of the GNU General Public License
+::  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+::
+:: ----------------------------------------------------------------------
+:: https://github.com/angiolucci/dfg
+:: Quick changelog
+:: version	|	what	|	when
+:: 0.1.0	|first release	|	jan/2011
+:: 0.1.0c	|multi bug fix	|	2012,2014
+:: 0.9.0	|Win 10 support |	jan/2016 
+
 
 @echo off
 cls
@@ -39,9 +57,9 @@ goto:eof
  
 :wrgsys
 	echo This scripts works only on Windows NT based systems
-	echo such as Windows XP/2003/Vista/Seven/2008.
+	echo such as Windows XP/2003/Vista/Seven/2008/8/10.
 	echo.
-	echo To avoid to crash your system, this script will be 
+	echo To avoid  crash your system, this script will be 
 	echo closed.
 goto:eof
 
@@ -84,12 +102,11 @@ goto:eof
 goto:eof
 
 :config
-	set av_path="%programfiles%\Microsoft Security Client\MpCmdRun.exe"
 	set drive=%systemdrive%
 	set /a sage=11
 	set /a halt_time=55
 	set /a halt_time=%halt_time% + 5
-	set version=0.1.0c
+	set version=0.9.0
 	set name=System TuneUP
 	title %name%
 	
@@ -99,7 +116,7 @@ goto:eof
 goto:eof
 
 :purge
-	set av_path=
+
 	set drive=
 	set sage=
 	REM set halt_time=
@@ -145,10 +162,17 @@ goto:eof
 goto:eof
 
 :check_av
-	if exist %av_path% (
+	set av_bin="%programfiles%\Microsoft Security Client\MpCmdRun.exe"
+	if exist %av_bin% (
 		echo * Checking for viruses with Microsoft Security Essentials
-		%av_path% -Scan -Scantype 1
+		%av_bin% -Scan -Scantype 1
 	)
+	set av_bin="%programfiles%\Windows Defender\MpCmdRun.exe"
+	if exist %av_bin% (
+		echo * Checking for viruses with Windows Defender
+		%av_bin% -Scan -Scantype 1
+	)
+	set av_bin=
 goto:eof
 
 :reboot
